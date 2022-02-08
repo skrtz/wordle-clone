@@ -1,23 +1,29 @@
-import logo from './logo.svg';
+import { useEffect, useState } from 'react';
 import './App.css';
 
 function App() {
+  const [wordGrid, setWordGrid] = useState([])
+
+  useEffect(() => {
+    function initializeWordGrid() {
+      let newWordGrid = [];
+      for(let i = 0; i < 6; i++) {
+        newWordGrid.push([])
+      }
+      for(let i = 0; i < 6; i++){
+        for(let j = 0; j < 5; j++){
+          newWordGrid[i].push({letter: "", state: "empty"}) //states: "correct", "incorrect", "wrong postition", "empty"
+        }
+      }
+    }
+    if(wordGrid === 0){
+      initializeWordGrid()
+    }
+  })
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      hello
     </div>
   );
 }
